@@ -1,5 +1,5 @@
 # maya_joint_animation_json_exporter
-Maya python script to export selected joint animations to json format - primarily for use with Facebook's AR Studio. 
+Maya python script to export selected joint animations to json format - primarily indended as a pipeline for animating complex skeletons within Facebook's AR Studio. 
 
 # usage
 
