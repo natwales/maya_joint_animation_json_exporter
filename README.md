@@ -13,6 +13,7 @@ Within your project open, and all of your joints selected, run the following cod
 import jointExporter
 jointExporter.saveSelectedJointsToJsonFile(1,50,"myJsonFileName")
 ```
+The first parameter is the frame you want to start exporting animations at, the second is the last frame of the animation, and the third parameter is the fileName.
 
 The json file will be saved to your user's home directory. The data structure is keyed by joint name first and then frame# which contains all of the translation and rotation values for that joint on that specific frame
 
