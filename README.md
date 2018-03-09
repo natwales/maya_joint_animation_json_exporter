@@ -1,9 +1,11 @@
 # maya_joint_animation_json_exporter
-Maya python script to export selected joint animations to json format - primarily for use with Facebook's AR Studio
+Maya python script to export selected joint animations to json format - primarily for use with Facebook's AR Studio. 
 
 # usage
 
-Add jointExporter.py to your maya scripts directory. On a Mac: /Users/[user]/Library/Preferences/Autodesk/maya/2017/scripts
+Add jointExporter.py to your maya scripts directory. 
+
+On a Mac: ```/Users/[user]/Library/Preferences/Autodesk/maya/2017/scripts```
 
 Within your project open, and all of your joints selected, run the following code in the script editor:
 
@@ -12,7 +14,7 @@ import jointExporter
 jointExporter.saveSelectedJointsToJsonFile(1,50,"myJsonFileName")
 ```
 
-The json file is exported in the following format organized by joint name and then frame# containing all of the translation and rotation values
+The json file will be saved to your user's home directory. The data structure is keyed by joint name first and then frame# which contains all of the translation and rotation values for that joint on that specific frame
 
 ```javascript
 {
