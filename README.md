@@ -1,3 +1,6 @@
+# STILL WORKING OUT ISSUES I DISCOVERED WITH JOINT ORIENTATION & JOINT ROTATION. DO NOT USE UNTIL FIXED.
+
+
 # maya_joint_animation_json_exporter
 Maya python script to export selected joint animations to a json file.
 
