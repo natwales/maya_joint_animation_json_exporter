@@ -14,7 +14,7 @@ def saveSelectedJointsToJsonFile(startTime, endTime, filename = "joints"):
 
          for frame in timeRange:
              tx, ty, tz = cmds.getAttr('%s.translate' % obj, time =frame)[0]
-             rx, ry, rz  = cmds.getAttr('%s.rotate' % obj)[0]
+             rx, ry, rz  = cmds.getAttr('%s.rotate' % obj, time =frame)[0]
              frameDict = {}
              frameDict['tx'] = "%.8f" % tx
              frameDict['ty'] = "%.8f" % ty
