@@ -11,17 +11,22 @@ def saveSelectedJointsToJsonFile(startTime, endTime, filename = "joints"):
 
          jointDict = {}
          shortName = obj.split("|")[-1]
+         attrs = cmds.listAttr(r=True)
+         print attrs
 
          for frame in timeRange:
              tx, ty, tz = cmds.getAttr('%s.translate' % obj, time =frame)[0]
-             rx, ry, rz = cmds.getAttr('%s.jointOrient' % obj, time=frame)[0]
+             rx, ry, rz  = cmds.getAttr('%s.rotate' % obj, time=frame)[0]
+             ox, oy, oz = cmds.getAttr('%s.jointOrient' % obj, time=frame)[0]
+
              frameDict = {}
+
              frameDict['tx'] = "%.8f" % tx
              frameDict['ty'] = "%.8f" % ty
              frameDict['tz'] = "%.8f" % tz
-             frameDict['rx'] = "%.8f" % rx
-             frameDict['ry'] = "%.8f" % ry
-             frameDict['rz'] = "%.8f" % rz
+             frameDict['rx'] = "%.8f" % (rx + ox)
+             frameDict['ry'] = "%.8f" % (ry + oy)
+             frameDict['rz'] = "%.8f" % (rz + ox)
 
              jointDict[frame] = frameDict
 
