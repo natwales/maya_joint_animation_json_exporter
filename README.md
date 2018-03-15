@@ -31,4 +31,4 @@ To playback animations in AR Studio see `ar_studio_usage_example.js`.
 
 # todo
 
-Need to test this on the AR Studio side and create script to parse json file and apply animations to joints.
+Is is possible to optimize animation playback in ar studio using custom sampler to pull data out of dictionary?
