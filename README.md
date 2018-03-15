@@ -1,5 +1,5 @@
 # maya_joint_animation_json_exporter
-Maya python script to export selected joint animations to a json file.
+Maya python script to export selected joint animations to a json file and example javascript file to run animations in AR Studio.
 
 # usage
 
@@ -26,6 +26,8 @@ The json file will be saved to your user's home directory. The data structure is
     ...
 }
 ```
+
+To playback animations in AR Studio see `ar_studio_usage_example.js`.
 
 # todo
 
