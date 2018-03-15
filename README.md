@@ -3,6 +3,8 @@ Maya python script to export selected joint animations to a json file and exampl
 
 # usage
 
+Usage demo video here: https://vimeo.com/260300507
+
 Add jointExporter.py to your maya scripts directory. 
 
 On a Mac: ```/Users/[user]/Library/Preferences/Autodesk/maya/2017/scripts```
