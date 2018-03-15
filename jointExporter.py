@@ -26,7 +26,7 @@ def saveSelectedJointsToJsonFile(startTime, endTime, filename = "joints"):
              frameDict['tz'] = "%.8f" % tz
              frameDict['rx'] = "%.8f" % (rx + ox)
              frameDict['ry'] = "%.8f" % (ry + oy)
-             frameDict['rz'] = "%.8f" % (rz + ox)
+             frameDict['rz'] = "%.8f" % (rz + oz)
 
              jointDict[frame] = frameDict
 
