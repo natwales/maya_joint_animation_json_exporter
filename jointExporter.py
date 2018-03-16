@@ -11,8 +11,8 @@ def saveSelectedJointsToJsonFile(startTime, endTime, filename = "joints"):
 
          jointDict = {}
          shortName = obj.split("|")[-1]
-         attrs = cmds.listAttr(r=True)
-         print attrs
+         #attrs = cmds.listAttr(r=True)
+         #print attrs
 
          for frame in timeRange:
              tx, ty, tz = cmds.getAttr('%s.translate' % obj, time =frame)[0]
