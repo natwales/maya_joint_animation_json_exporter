@@ -48,9 +48,9 @@ frameSignal.monitor().subscribe((value) => {
             transform.rotationX = parseFloat(frameDict["rx"]) * Math.PI / 180;
             transform.rotationY = parseFloat(frameDict["ry"]) * Math.PI / 180;
             transform.rotationZ = parseFloat(frameDict["rz"]) * Math.PI / 180;
-            transform.translateX = parseFloat(frameDict["tx"]);
-            transform.translateY = parseFloat(frameDict["ty"]);
-            transform.translateZ = parseFloat(frameDict["tz"]);
+            transform.x = parseFloat(frameDict["tx"]);
+            transform.y = parseFloat(frameDict["ty"]);
+            transform.z = parseFloat(frameDict["tz"]);
         } catch(err) {
             Diagnostics.log(err);
             return;
