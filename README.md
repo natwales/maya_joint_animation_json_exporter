@@ -31,7 +31,7 @@ The json file will be saved to your user's home directory. The data structure is
 
 To playback animations in AR Studio see `ar_studio_usage_example.js`.
 
-UPDATE: Any joints with _ROOT_ in their name will be exported in world space. This is may be helpful when you want to animate a single full skeleton in Maya while still spliting up animations accross seperate meshes in order to come in under the 20 joint limit per mesh in AR Studio.
+UPDATE: Any joints with \_ROOT\_ in their name will be exported in world space. This is may be helpful when you want to animate a single full skeleton in Maya while still spliting up animations accross seperate meshes in order to come in under the 20 joint limit per mesh in AR Studio.
 
 # todo
 
