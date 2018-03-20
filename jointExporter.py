@@ -53,7 +53,7 @@ def _getFrameDictForRootJoint(obj,frame):
 
     #get world matrix for root joint
     rootJointWMat = om.MMatrix()
-    om.MScriptUtil.createMatrixFromList(cmds.getAttr('%s.worldMatrix'%obj), rootJointWMat)
+    om.MScriptUtil.createMatrixFromList(cmds.getAttr('%s.worldMatrix'%obj, time=frame), rootJointWMat)
     jointWorldMat = om.MTransformationMatrix(rootJointWMat)
 
     #read rotation in world space
