@@ -1,6 +1,8 @@
 # maya_joint_animation_json_exporter
 Maya python script to export selected joint animations to a json file and example javascript file to run animations in AR Studio.
 
+ISSUE! - I am not handling joint rotations / joint orientations properly. This appears to work fine if your joints transformations are all frozen, but if they aren't the rotations are all wrong. Fix coming soon.
+
 # usage
 
 Usage demo video here: https://vimeo.com/260300507
