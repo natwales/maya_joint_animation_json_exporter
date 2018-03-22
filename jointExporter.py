@@ -34,18 +34,25 @@ def saveSelectedJointsToJsonFile(startTime, endTime, filename = "joints"):
 #non root joints should pass values from object space
 def _getFrameDict(obj, frame):
 
-    tx, ty, tz = cmds.getAttr('%s.translate' % obj, time =frame)[0]
-    rx, ry, rz  = cmds.getAttr('%s.rotate' % obj, time=frame)[0]
-    ox, oy, oz = cmds.getAttr('%s.jointOrient' % obj, time=frame)[0]
+    rotOrder = cmds.getAttr('%s.rotateOrder'%obj)
+
+    jointMat = om.MMatrix()
+    om.MScriptUtil.createMatrixFromList(cmds.getAttr('%s.matrix'%obj, time=frame), jointMat)
+    jointTMat = om.MTransformationMatrix(jointMat)
+
+    eulerRot = jointTMat.eulerRotation()
+    eulerRot.reorderIt(rotOrder)
+    translation = jointTMat.getTranslation(om.MSpace.kTransform)
+    angles = [math.degrees(angle) for angle in (eulerRot.x, eulerRot.y, eulerRot.z)]
 
     frameDict = {}
 
-    frameDict['tx'] = "%.8f" % tx
-    frameDict['ty'] = "%.8f" % ty
-    frameDict['tz'] = "%.8f" % tz
-    frameDict['rx'] = "%.8f" % (rx + ox)
-    frameDict['ry'] = "%.8f" % (ry + oy)
-    frameDict['rz'] = "%.8f" % (rz + oz)
+    frameDict['tx'] = "%.8f" % translation.x
+    frameDict['ty'] = "%.8f" % translation.y
+    frameDict['tz'] = "%.8f" % translation.z
+    frameDict['rx'] = "%.8f" % (angles[0])
+    frameDict['ry'] = "%.8f" % (angles[1])
+    frameDict['rz'] = "%.8f" % (angles[2])
     return frameDict
 
 #root joints pass values from world space
@@ -61,15 +68,28 @@ def _getFrameDictForRootJoint(obj,frame):
     eulerRot = jointWorldMat.eulerRotation()
     eulerRot.reorderIt(rotOrder)
     translation = jointWorldMat.getTranslation(om.MSpace.kWorld)
+
     angles = [math.degrees(angle) for angle in (eulerRot.x, eulerRot.y, eulerRot.z)]
 
     frameDict = {}
+
     frameDict['tx'] = "%.8f" % translation.x
     frameDict['ty'] = "%.8f" % translation.y
     frameDict['tz'] = "%.8f" % translation.z
     frameDict['rx'] = "%.8f" % (angles[0])
     frameDict['ry'] = "%.8f" % (angles[1])
     frameDict['rz'] = "%.8f" % (angles[2])
+
+    print "--------------"
+    print obj
+    print frame
+    print "--------------"
+    print translation.x
+    print translation.y
+    print translation.z
+    print angles
+    print frameDict
+    print "              "
 
     return frameDict
 
